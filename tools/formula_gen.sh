@@ -3,7 +3,7 @@
 ROOT_DIR="$(git rev-parse --show-toplevel)"
 
 BAZEL_VERSION=$1
-BAZEL_COMPACT_VERSION=$(echo $hostname | sed -e 's/\.//g')
+BAZEL_COMPACT_VERSION=$(echo $BAZEL_VERSION | sed -e 's/\.//g')
 echo $BAZEL_COMPACT_VERSION
 
 BAZEL_INSTALLER_URL="https://releases.bazel.build/$BAZEL_VERSION/release/bazel-$BAZEL_VERSION-installer-darwin-x86_64.sh"

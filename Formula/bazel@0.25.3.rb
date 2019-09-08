@@ -1,4 +1,4 @@
-class BazelAT < Formula
+class BazelAT0253 < Formula
     desc "Fast, scalable, multi-language and extensible build system"
     homepage "https://bazel.build/"
     url "https://releases.bazel.build/0.25.3/release/bazel-0.25.3-installer-darwin-x86_64.sh", :using => :nounzip
