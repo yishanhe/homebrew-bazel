@@ -3,8 +3,9 @@
 ROOT_DIR="$(git rev-parse --show-toplevel)"
 
 BAZEL_VERSION=$1
+echo "Generating Bazel Tap Formula for Bazel@${BAZEL_VERSION}"
+
 BAZEL_COMPACT_VERSION=$(echo $BAZEL_VERSION | sed -e 's/\.//g')
-echo $BAZEL_COMPACT_VERSION
 
 BAZEL_INSTALLER_URL="https://releases.bazel.build/$BAZEL_VERSION/release/bazel-$BAZEL_VERSION-installer-darwin-x86_64.sh"
 TMP_FOLDER="/tmp/homebrew_bazel_tmp"
@@ -23,20 +24,20 @@ fi
 
 if [[ -x "$(command -v openssl)" ]]; then
     SHA256=$(openssl dgst -sha256 < $TMP_INSTALLER_FILE)
-    echo $SHA256
 elif [[ -x "$(command -v shasum)" ]]; then
     SHA256=$(shasum -a 256 $TMP_INSTALLER_FILE | cut -d' ' -f1)
-    echo $SHA256
 else
     echo "No shasum and openssl installed."
     exit 1
 fi
 
-# echo $SHA256
-
+echo "The SHA256 of installation script: ${SHA256}"
 
 sed -e 's/REPLACE_ME_WITH_BAZEL_COMPACTVERSION/'"${BAZEL_COMPACT_VERSION}"'/g' \
     -e 's/REPLACE_ME_WITH_BAZEL_VERSION/'"${BAZEL_VERSION}"'/g' \
     -e 's/REPLACE_ME_WITH_SHA256/'"${SHA256}"'/g' \
-    "$ROOT_DIR/tools/bazel_formula_template.rb" | tee "$ROOT_DIR/Formula/bazel@$BAZEL_VERSION.rb"
+    "$ROOT_DIR/tools/bazel_formula_template.rb" \
+    > "$ROOT_DIR/Formula/bazel@$BAZEL_VERSION.rb"
 
+echo "Formula bazel@$BAZEL_VERSION.rb generated"
+echo ""
