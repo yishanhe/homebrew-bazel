@@ -1,8 +1,8 @@
-class BazelAT121 < Formula
+class BazelAT211 < Formula
     desc "Fast, scalable, multi-language and extensible build system"
     homepage "https://bazel.build/"
-    url "https://releases.bazel.build/1.2.1/release/bazel-1.2.1-installer-darwin-x86_64.sh", :using => :nounzip
-    version "1.2.1"
+    url "https://releases.bazel.build/2.1.1/release/bazel-2.1.1-installer-darwin-x86_64.sh", :using => :nounzip
+    version "2.1.1"
     sha256 ""
 
     bottle :unneeded
