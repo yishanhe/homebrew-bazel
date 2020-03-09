@@ -3,7 +3,7 @@ class BazelAT110 < Formula
     homepage "https://bazel.build/"
     url "https://releases.bazel.build/1.1.0/release/bazel-1.1.0-installer-darwin-x86_64.sh", :using => :nounzip
     version "1.1.0"
-    sha256 ""
+    sha256 "1a552f4ce194860fbbd50eeb319f81788ddf50a849e92378eec72231cc64ef65"
 
     bottle :unneeded
 
