@@ -1,4 +1,12 @@
+
+>  Better Alternative
+>
+>  PLEASE consider using [Bazelisk](https://github.com/bazelbuild/bazelisk/)
+>
+>  [Bazelisk Homebrew Formulae](https://formulae.brew.sh/formula/bazelisk) 
+
 # homebrew-bazel
+
 a tap for bazel with versions
 
 
@@ -24,6 +32,4 @@ To switch bazel verions
 - `brew link bazel@0.28.1`
 
 
-## Repo Usage
 
-to add more versions, update the `tools/versions` file, then run `toos/build.sh`
